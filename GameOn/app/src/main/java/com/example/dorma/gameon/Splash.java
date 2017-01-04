@@ -17,31 +17,19 @@ public class Splash extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splashh);
-
-        final ImageView iv = (ImageView) findViewById(R.id.gameonlogo);
-        final Animation an = AnimationUtils.loadAnimation(getBaseContext(), R.anim.rotate);
+        Intent i = new Intent(getBaseContext(), MainActivity.class);
+        startActivity(i);
+        /*final ImageView iv = (ImageView) findViewById(R.id.gamelogo);
         final Animation an2 = AnimationUtils.loadAnimation(getBaseContext(), R.anim.abc_fade_out);
 
-        iv.startAnimation(an);
-        an.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
+        iv.startAnimation(an2);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Intent i = new Intent(getBaseContext(), MainActivity.class);
+        startActivity(i);*/
 
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                iv.setVisibility(View.GONE);
-                iv.startAnimation(an2);
-                finish();
-                Intent i = new Intent(getBaseContext(), MainActivity.class);
-                startActivity(i);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
     }
 }

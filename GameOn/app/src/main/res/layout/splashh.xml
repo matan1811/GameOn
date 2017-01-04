@@ -9,23 +9,23 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.dorma.gameon.Splash">
+    tools:context="com.example.dorma.gameon.MainActivity">
 
     <TextView
-        android:text="Splash screen"
+        android:text="Splash Screen!"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txt"
-        android:textSize="36sp"
-        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="34dp" />
+        android:id="@+id/textView2"
+        android:textSize="36sp" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/logo2"
-        android:layout_centerVertical="true"
+        app:srcCompat="@drawable/gameonlogo"
+        android:layout_above="@+id/textView2"
         android:layout_centerHorizontal="true"
-        android:id="@+id/gameonlogo" />
+        android:layout_marginBottom="55dp"
+        android:id="@+id/imageView" />
 </RelativeLayout>
