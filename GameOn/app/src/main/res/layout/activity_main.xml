@@ -46,7 +46,7 @@
         android:orientation="horizontal"
         android:layout_weight="1">
 
-        <ImageView
+        <ImageButton
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/tennis"
@@ -54,23 +54,25 @@
             android:layout_weight="1"
              />
 
-        <ImageView
+        <ImageButton
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/tennis"
+            app:srcCompat="@drawable/basketball"
             android:layout_weight="1"
             android:id="@+id/basketball_image"
              />
 
-        <ImageView
+        <ImageButton
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/tennis"
+            app:srcCompat="@drawable/football"
             android:layout_weight="1"
             android:id="@+id/football_image"
              />
 
     </LinearLayout>
+
+
 
 </LinearLayout>
 
