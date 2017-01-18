@@ -20,7 +20,7 @@
         android:layout_above="@+id/textView2"
         android:layout_centerHorizontal="true"
         android:id="@+id/imageView"
-        android:layout_weight="1"/>
+        android:layout_weight="0.57"/>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -35,29 +35,29 @@
         tools:context="com.example.dorma.gameon.MainActivity"
         android:orientation="horizontal"
         android:weightSum="3"
-        android:layout_weight="1">
+        android:layout_weight="1.06">
 
-        <ImageButton
+        <ImageView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/tennis"
+            android:layout_height="match_parent"
+            app:srcCompat="@mipmap/tennis2"
             android:id="@+id/tennis_image"
-            android:layout_weight="1"
+            android:layout_weight="1.00"
              />
 
-        <ImageButton
+        <ImageView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/basketball"
-            android:layout_weight="1"
+            android:layout_height="match_parent"
+            app:srcCompat="@mipmap/basketball2"
+            android:layout_weight="1.00"
             android:id="@+id/basketball_image"
              />
 
-        <ImageButton
+        <ImageView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/football"
-            android:layout_weight="1"
+            android:layout_height="match_parent"
+            app:srcCompat="@mipmap/soccer2"
+            android:layout_weight="1.00"
             android:id="@+id/football_image"
              />
 
