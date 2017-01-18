@@ -22,8 +22,8 @@ public class Splash extends AppCompatActivity {
         final ImageView iv = (ImageView) findViewById(R.id.gamelogo);
         final Animation an = AnimationUtils.loadAnimation(getBaseContext(), R.anim.abc_fade_in);
         final Animation an2 = AnimationUtils.loadAnimation(getBaseContext(), R.anim.abc_fade_out);
-        iv.startAnimation(an);
-        iv.startAnimation(an2);
+        //iv.startAnimation(an);
+        //iv.startAnimation(an2);
 
          /* New Handler to start the Menu-Activity
  * and close this Splash-Screen after some seconds.*/
