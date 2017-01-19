@@ -3,11 +3,5 @@
     android:constantSize="true"
     android:variablePadding="false">
 
-    <item
-        android:drawable="@drawable/football"
-        android:state_enabled="false"/>
-    <item
-        android:drawable="@drawable/basketball"
-        android:state_enabled="true"/>
 
 </selector>

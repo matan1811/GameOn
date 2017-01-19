@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import static com.example.dorma.gameon.R.id.football_image;
+import static com.example.dorma.gameon.R.id.soccer_image;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
