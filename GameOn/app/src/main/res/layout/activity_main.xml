@@ -11,20 +11,31 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.dorma.gameon.MainActivity"
     android:orientation="vertical"
-    android:weightSum="5">
+    android:weightSum="5.6"
+    android:background="@drawable/new1">
+
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="121dp"
         app:srcCompat="@drawable/logo"
         android:layout_above="@+id/textView2"
         android:layout_centerHorizontal="true"
         android:id="@+id/imageView"
-        android:layout_weight="1"/>
+        android:layout_weight="0.32" />
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <TextView
+        android:text="Choose your sport:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:gravity="center"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.WindowTitle"
+        android:fontFamily="casual"
+        android:textColor="@android:color/background_light"
+        android:layout_weight="0.38" />
+
+    <LinearLayout
         android:id="@+id/sports_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -35,40 +46,70 @@
         tools:context="com.example.dorma.gameon.MainActivity"
         android:orientation="horizontal"
         android:weightSum="3"
-        android:layout_weight="1">
+        android:layout_weight="2">
 
-        <ImageButton
+        <ImageView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/tennis"
+            android:layout_height="match_parent"
+            app:srcCompat="@mipmap/bw_tennis"
             android:id="@+id/tennis_image"
-            android:layout_weight="1"
+            android:layout_weight="1.00"
              />
 
-        <ImageButton
+        <ImageView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/basketball"
-            android:layout_weight="1"
+            android:layout_height="match_parent"
+            app:srcCompat="@mipmap/bw_basketball"
+            android:layout_weight="1.00"
             android:id="@+id/basketball_image"
              />
 
-        <ImageButton
+        <ImageView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/football"
-            android:layout_weight="1"
-            android:id="@+id/football_image"
+            android:layout_height="match_parent"
+            app:srcCompat="@mipmap/bw_soccer"
+            android:layout_weight="1.00"
+            android:id="@+id/soccer_image"
              />
 
     </LinearLayout>
 
-    <Button
-        android:text="GameOn!!!!!"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:id="@+id/button"
-        android:layout_weight="3" />
+        android:layout_height="20dp"
+        app:srcCompat="@mipmap/search"
+        android:layout_weight="2.70"
+        android:id="@+id/searc_now"
+        />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/game_time_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="com.example.dorma.gameon.MainActivity"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:layout_weight="0.1">
+
+
+        <Button
+            android:text="Schedule for later"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/schedule"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:background="@android:color/transparent"
+            android:fontFamily="casual"
+            android:textColor="@android:color/background_light" />
+
+    </LinearLayout>
+
 
 
 </LinearLayout>
