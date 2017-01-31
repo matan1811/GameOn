@@ -11,34 +11,21 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.dorma.gameon.MainActivity"
     android:orientation="vertical"
-    android:weightSum="5.6"
-    android:background="@drawable/new1">
-
+    android:weightSum="6.62" >
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="121dp"
-        app:srcCompat="@drawable/logo"
-        android:layout_above="@+id/textView2"
-        android:layout_centerHorizontal="true"
+        android:layout_height="35dp"
+        app:srcCompat="@drawable/settings"
+        android:layout_marginLeft="280dp"
         android:id="@+id/imageView"
-        android:layout_weight="0.32" />
+        android:layout_weight="0.2"/>
 
-    <TextView
-        android:text="Choose your sport:"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:gravity="center"
-        android:textAppearance="@android:style/TextAppearance.DeviceDefault.WindowTitle"
-        android:fontFamily="casual"
-        android:textColor="@android:color/background_light"
-        android:layout_weight="0.38" />
 
     <LinearLayout
-        android:id="@+id/sports_layout"
+        android:id="@+id/icons"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="67dp"
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
@@ -46,71 +33,117 @@
         tools:context="com.example.dorma.gameon.MainActivity"
         android:orientation="horizontal"
         android:weightSum="3"
-        android:layout_weight="2">
+        android:layout_weight="3">
+
 
         <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            app:srcCompat="@mipmap/bw_tennis"
-            android:id="@+id/tennis_image"
-            android:layout_weight="1.00"
-             />
+            android:layout_width="120dp"
+            android:layout_height="110dp"
+            app:srcCompat="@drawable/player1"
+            android:layout_weight="1"
+            android:id="@+id/player" />
 
         <ImageView
+            android:layout_width="110dp"
+            android:layout_height="160dp"
+            app:srcCompat="@drawable/playerstat"
+            android:layout_weight="1"
+            android:id="@+id/playerstat" />
+        <Space
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            app:srcCompat="@mipmap/bw_basketball"
-            android:layout_weight="1.00"
-            android:id="@+id/basketball_image"
-             />
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            app:srcCompat="@mipmap/bw_soccer"
-            android:layout_weight="1.00"
-            android:id="@+id/soccer_image"
-             />
+
 
     </LinearLayout>
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        app:srcCompat="@mipmap/search"
-        android:layout_weight="2.70"
-        android:id="@+id/search_now"
-        />
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/game_time_layout"
+    <TextView
+        android:text="Choose your game:"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:gravity="center"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.WindowTitle"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_weight="0.8"
+        android:textSize="24sp"
+        android:elevation="4dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/sports_layout"
+        android:layout_width="match_parent"
+        android:layout_height="114dp"
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         tools:context="com.example.dorma.gameon.MainActivity"
         android:orientation="horizontal"
-        android:weightSum="1"
-        android:layout_weight="0.1">
+        android:weightSum="3.2"
+        android:layout_weight="0.62">
 
-
-        <Button
-            android:text="Schedule for later"
-            android:layout_width="match_parent"
+        <CheckBox
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/schedule"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:background="@android:color/transparent"
-            android:fontFamily="casual"
-            android:textColor="@android:color/background_light" />
+            android:background="@drawable/tennis_selector"
+            android:layout_weight="1.00"
+            android:id="@+id/tennis_image"
+            android:button="@android:color/transparent"
+            />
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1" />
+
+        <CheckBox
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/basketball_selector"
+            android:layout_weight="1.00"
+            android:id="@+id/basketball_image"
+            android:button="@android:color/transparent"
+            />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1" />
+
+        <CheckBox
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/soccer_selector"
+            android:layout_weight="1.00"
+            android:id="@+id/soccer_image"
+            android:button="@android:color/transparent"
+            />
+
 
     </LinearLayout>
 
+    <ImageView android:layout_width="130dp"
+        android:layout_height="120dp"
+        android:src="@drawable/powerbutton2"
+        android:id="@+id/search_now"
+        android:layout_gravity="center"
+        android:layout_weight="2"/>
+
+    <!--<FrameLayout android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+
+
+        <ImageView android:layout_width="216dp"
+            android:layout_height="170dp"
+            android:src="@drawable/circle1"
+            android:layout_gravity="center"
+            android:id="@+id/search_round"/>
+
+    </FrameLayout>-->
 
 
 </LinearLayout>
-

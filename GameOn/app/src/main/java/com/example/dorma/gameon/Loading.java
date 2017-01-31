@@ -1,5 +1,7 @@
 package com.example.dorma.gameon;
 
+import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +20,26 @@ public class Loading extends AppCompatActivity {
         setContentView(R.layout.searching);
         final ImageView iv = (ImageView) findViewById(R.id.loadingicon);
         final Animation an = AnimationUtils.loadAnimation(getBaseContext(), R.anim.rotate);
+        final MediaPlayer mp = MediaPlayer.create(this, R.raw.whisle);
         iv.startAnimation(an);
+        an.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                //finish();
+                mp.start();
+                Intent i=new Intent(Loading.this, Found_opponent.class);
+                startActivity(i);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
     }
 }

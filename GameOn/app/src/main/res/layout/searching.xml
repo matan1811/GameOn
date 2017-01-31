@@ -29,7 +29,7 @@
         android:layout_weight="5"/>
 
     <TextView
-        android:text="Finding Opponent"
+        android:text="Finding Opponent....."
         android:layout_width="match_parent"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.WindowTitle"
         android:layout_height="0dp"
