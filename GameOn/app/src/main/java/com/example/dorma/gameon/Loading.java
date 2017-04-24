@@ -42,4 +42,10 @@ public class Loading extends AppCompatActivity {
             }
         });
     }
+
+    private void checkIfSomeoneAccept() {
+        Bundle b = getIntent().getExtras();
+        Player player = b.getParcelable("current_player");
+        // Check with the server if someone accept the request from player
+    }
 }
