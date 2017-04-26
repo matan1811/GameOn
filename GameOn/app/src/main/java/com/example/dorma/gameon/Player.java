@@ -22,19 +22,20 @@ public class Player implements Parcelable {
     private Location location;
     private ArrayList<Game> eGames = new ArrayList<>();
     private Date time;
+    private String picPath;
 
     public Player(){
 
     }
 
-    public Player(String name, int id, int exp, int league, Bitmap pic, boolean isFirstPlayer, Location location) {
+    public Player(String name, int id, int exp, int league, boolean isFirstPlayer, Location location, String picPath) {
         this.name = name;
         this.id = id;
         this.exp = exp;
         this.league = league;
-        this.pic = pic;
         this.isFirstPlayer = isFirstPlayer;
         this.location = location;
+        this.picPath = picPath;
     }
 
     @Override
@@ -45,7 +46,13 @@ public class Player implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.name);
+        dest.writeInt(this.id);
+        dest.writeInt(this.exp);
+        dest.writeInt(this.league);
+        dest.writeByte((byte) (this.isFirstPlayer ? 1 : 0));
         location.writeToParcel(dest, flags);
+        dest.writeList(this.eGames);
+
         //...
 
     }
@@ -63,11 +70,14 @@ public class Player implements Parcelable {
 
     private Player(Parcel in) {
         this.name = in.readString();
-        this.location=Location.CREATOR.createFromParcel(in);
+        this.id = in.readInt();
+        this.exp = in.readInt();
+        this.league = in.readInt();
+        this.isFirstPlayer = in.readByte() != 0;
+        this.location = Location.CREATOR.createFromParcel(in);
+        this.eGames = in.readArrayList(Game.class.getClassLoader());
 
     }
-
-
 
     public void populateFromJson(String json){
         // Get a json string and init this user
@@ -127,11 +137,11 @@ public class Player implements Parcelable {
         this.league = league;
     }
 
-    public Bitmap getPic() {
-        return pic;
+    public String gePic() {
+        return picPath;
     }
 
-    public void setPic(Bitmap pic) {
-        this.pic = pic;
+    public void setPic(String picPath) {
+        this.picPath = picPath;
     }
 }

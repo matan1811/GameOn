@@ -1,10 +1,15 @@
 package com.example.dorma.gameon;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.location.Location;
+import android.location.LocationManager;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -20,7 +25,7 @@ import static com.example.dorma.gameon.R.id.soccer_image;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ImageView searchNow;
-    private CurrentPlayer player;
+    private Player player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +47,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         //int viewId = view.getId();
 
+        Log.d("clicked", "clicked");
+
         if (collectGamesFromUI() == 0) {
             // print to screen error message
             return;
@@ -49,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         setPlayerTimeFromUI();
         setPlayerLocationFromUI();
-        player.setFirstPlayer(true);
 
         if ( ! sendPlayerDataToServer()) {
             // print error message, maybe retry
@@ -76,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // the user wanted games
         // return the number of games that was picked
 
-        return 0;
+        return 1;
     }
 
     private void setPlayerTimeFromUI() {
@@ -85,7 +91,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void fetchPlayerData() {
         if (player == null) {
-            // create player
+            Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.bw_basketball);
+            player = new Player("matan", 0, 1, 1, true, new Location(LocationManager.NETWORK_PROVIDER), "soccer_image");
         }
 
         // update player's data
@@ -97,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private boolean sendPlayerDataToServer() {
         // This method should be invoked when the current player click on "ready to play button"
         // return true on success
-        return false;
+        return true;
     }
 
     private void getCurrentLocation() {
