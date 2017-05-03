@@ -5,5 +5,5 @@ package com.example.dorma.gameon;
  */
 
 public enum Game {
-    FOOTBALL, TENNIS, BASKETBALL
+    SOCCER, TENNIS, BASKETBALL
 }

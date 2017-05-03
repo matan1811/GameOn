@@ -17,15 +17,39 @@ public class Player implements Parcelable {
     private int id;
     private int exp;
     private int league;
-    private Bitmap pic;
+    //private Bitmap pic;
     private boolean isFirstPlayer;
     private Location location;
     private ArrayList<Game> eGames = new ArrayList<>();
-    private Date time;
+    //private Date time;
+    private int startHour;
+    private int startMinute;
+    private int endHour;
+    private int endMinute;
     private String picPath;
 
     public Player(){
 
+    }
+
+    public void setStartHour(int hour) {
+        this.startHour = hour;
+    }
+
+    public void setStartMinute(int minute) {
+        this.startMinute = minute;
+    }
+
+    public void setEndHour(int hour) {
+        this.endHour = hour;
+    }
+
+    public void setEndMinute(int minute) {
+        this.endMinute = minute;
+    }
+
+    public void setPicPath(String picPath) {
+        this.picPath = picPath;
     }
 
     public Player(String name, int id, int exp, int league, boolean isFirstPlayer, Location location, String picPath) {
@@ -49,9 +73,16 @@ public class Player implements Parcelable {
         dest.writeInt(this.id);
         dest.writeInt(this.exp);
         dest.writeInt(this.league);
+        //pic.writeToParcel(dest,flags);
         dest.writeByte((byte) (this.isFirstPlayer ? 1 : 0));
         location.writeToParcel(dest, flags);
         dest.writeList(this.eGames);
+        dest.writeInt(this.startHour);
+        dest.writeInt(this.startMinute);
+        dest.writeInt(this.endHour);
+        dest.writeInt(this.endMinute);
+        //dest.writeString(time.toString());
+        dest.writeString(this.picPath);
 
         //...
 
@@ -87,6 +118,11 @@ public class Player implements Parcelable {
         Player player = new Player();
         player.populateFromJson(json);
         return player;
+    }
+    public void addGame(Game game){eGames.add(game);};
+
+    public String getGames() {
+        return eGames.toString();
     }
 
     public boolean isFirstPlayer() {

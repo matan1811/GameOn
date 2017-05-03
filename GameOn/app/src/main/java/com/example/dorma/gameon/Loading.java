@@ -54,7 +54,7 @@ public class Loading extends AppCompatActivity {
             Bundle matchBundle = new Bundle();
 
             matchBundle.putParcelable("player", player);
-            matchBundle.putParcelable("oppo", oppo);
+            matchBundle.putParcelable("oppעןאo", oppo);
 
             return matchBundle;
         }

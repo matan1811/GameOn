@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 /**
  * Created by dorma on 2017-01-03.
@@ -23,5 +24,7 @@ public class Found_opponent extends AppCompatActivity {
         Player oppo = b.getParcelable("oppo");
         Log.d("test_player", player.getName());
         Log.d("test_oppo", oppo.getName());
+        TextView nameTextView = (TextView) findViewById(R.id.gotball2);
+        nameTextView.setText(player.getGames());
     }
 }

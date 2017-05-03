@@ -12,7 +12,7 @@
     tools:context="com.example.dorma.gameon.MainActivity"
     android:background="@drawable/foundoppo">
 
-    <CheckBox
+    <TextView
         android:text="Got A Ball?"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
