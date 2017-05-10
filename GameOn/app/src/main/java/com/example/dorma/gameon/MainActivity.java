@@ -1,33 +1,26 @@
 package com.example.dorma.gameon;
 
-import android.app.Dialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationManager;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
+
+import junit.framework.Assert;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-
-import static com.example.dorma.gameon.R.id.soccer_image;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -54,6 +47,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         endTimeButton.setOnClickListener(this);
         fetchPlayerData(); //Check for erros
         TextView nameTextView = (TextView) findViewById(R.id.name);
+        ImageView image = (ImageView) findViewById(R.id.player);
+        int resID = getResources().getIdentifier(player.getPic(), "drawable", getPackageName());
+        image.setImageResource(resID);
         nameTextView.setText(player.getName());
         TextView leageTextView = (TextView) findViewById(R.id.league);
         leageTextView.setText("league  " + player.getLeague());
@@ -153,21 +149,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         CheckBox tennisCheckBox = (CheckBox)findViewById(R.id.tennis_image);
         CheckBox basketballCheckBox = (CheckBox)findViewById(R.id.basketball_image);
         CheckBox soccerCheckBox = (CheckBox)findViewById(R.id.soccer_image);
+        ArrayList<Game> games = new ArrayList<>();
         if(tennisCheckBox.isChecked()){
             counter++;
-            Game game = Game.TENNIS;
-            player.addGame(game);
+            games.add(Game.TENNIS);
         }
         if(basketballCheckBox.isChecked()){
             counter++;
-            Game game = Game.BASKETBALL;
-            player.addGame(game);
+            games.add(Game.BASKETBALL);
         }
         if(soccerCheckBox.isChecked()){
             counter++;
-            Game game = Game.SOCCER;
-            player.addGame(game);
+            games.add(Game.SOCCER);
         }
+        player.seteGames(games);
         return counter;
     }
 
@@ -178,7 +173,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void fetchPlayerData() {
         if (player == null) {
             Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.bw_basketball);
-            player = new Player("matan", 0, 1, 1, true, new Location(LocationManager.NETWORK_PROVIDER), "soccer_image");
+            player = new Player("matan", 0, 1, 1, true, new Location(LocationManager.NETWORK_PROVIDER), "player1");
         }
 
         // update player's data
@@ -186,7 +181,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //init player
         //we need to get current location
     }
+    public static int getDrawable(Context context, String name)
+    {
+        Assert.assertNotNull(context);
+        Assert.assertNotNull(name);
 
+        return context.getResources().getIdentifier(name,
+                "player1", context.getPackageName());
+    }
     private boolean sendPlayerDataToServer() {
         // This method should be invoked when the current player click on "ready to play button"
         // return true on success

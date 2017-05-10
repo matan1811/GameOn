@@ -1,14 +1,12 @@
 package com.example.dorma.gameon;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 /**
  * Created by dorma on 2017-01-03.
@@ -20,11 +18,26 @@ public class Found_opponent extends AppCompatActivity {
         setContentView(R.layout.found_opponent);
 
         Bundle b = getIntent().getExtras();
-        Player player = b.getParcelable("player");
-        Player oppo = b.getParcelable("oppo");
-        Log.d("test_player", player.getName());
-        Log.d("test_oppo", oppo.getName());
-        TextView nameTextView = (TextView) findViewById(R.id.gotball2);
-        nameTextView.setText(player.getGames());
+        //Player oppo = b.getParcelable("oppo");
+        //Player player = b.getParcelable("player");
+        ArrayList<Player> players = b.getParcelableArrayList("players");
+        Player player = players.get(0);
+        Player oppo = players.get(1);
+        Log.d("test_player", player.getPic());
+        Log.d("test_oppo", oppo.getPic());
+        TextView playerNameTextView = (TextView) findViewById(R.id.player_name);
+        TextView playerLeagueTextView = (TextView) findViewById(R.id.player_league);
+        TextView oppoNameTextView = (TextView) findViewById(R.id.oppo_name);
+        TextView oppoLeagueTextView = (TextView) findViewById(R.id.oppo_league);
+        ImageView playerImage = (ImageView) findViewById(R.id.player_image);
+        ImageView oppoImage = (ImageView) findViewById(R.id.oppo_image);
+        playerNameTextView.setText(player.getName());
+        playerLeagueTextView.setText("league  " + player.getLeague());
+        oppoNameTextView.setText(oppo.getName());
+        oppoLeagueTextView.setText("league  " + oppo.getLeague());
+        int playerImageID = getResources().getIdentifier(player.getPic(), "drawable", getPackageName());
+        int oppoImageID = getResources().getIdentifier(oppo.getPic(), "drawable", getPackageName());
+        playerImage.setImageResource(playerImageID);
+        oppoImage.setImageResource(oppoImageID);
     }
 }

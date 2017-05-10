@@ -60,6 +60,10 @@ public class Player implements Parcelable {
         this.isFirstPlayer = isFirstPlayer;
         this.location = location;
         this.picPath = picPath;
+        this.eGames = new ArrayList<Game>();
+        eGames.add(Game.BASKETBALL);
+        eGames.add(Game.SOCCER);
+        eGames.add(Game.TENNIS);
     }
 
     @Override
@@ -77,11 +81,10 @@ public class Player implements Parcelable {
         dest.writeByte((byte) (this.isFirstPlayer ? 1 : 0));
         location.writeToParcel(dest, flags);
         dest.writeList(this.eGames);
-        dest.writeInt(this.startHour);
-        dest.writeInt(this.startMinute);
-        dest.writeInt(this.endHour);
-        dest.writeInt(this.endMinute);
-        //dest.writeString(time.toString());
+        //dest.writeInt(this.startHour);
+        //dest.writeInt(this.startMinute);
+        //dest.writeInt(this.endHour);
+        //dest.writeInt(this.endMinute);
         dest.writeString(this.picPath);
 
         //...
@@ -107,6 +110,7 @@ public class Player implements Parcelable {
         this.isFirstPlayer = in.readByte() != 0;
         this.location = Location.CREATOR.createFromParcel(in);
         this.eGames = in.readArrayList(Game.class.getClassLoader());
+        this.picPath = in.readString();
 
     }
 
@@ -119,7 +123,9 @@ public class Player implements Parcelable {
         player.populateFromJson(json);
         return player;
     }
-    public void addGame(Game game){eGames.add(game);};
+    public void seteGames(ArrayList<Game> games){ eGames = games; }
+
+    public void addGame(Game game){eGames.add(game);}
 
     public String getGames() {
         return eGames.toString();
@@ -173,7 +179,7 @@ public class Player implements Parcelable {
         this.league = league;
     }
 
-    public String gePic() {
+    public String getPic() {
         return picPath;
     }
 

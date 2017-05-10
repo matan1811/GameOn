@@ -6,6 +6,7 @@ import android.location.LocationManager;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.os.StrictMode;
 import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
@@ -14,6 +15,8 @@ import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+
+import java.util.ArrayList;
 
 /**
  * Created by dorma on 2017-01-25.
@@ -49,12 +52,15 @@ public class Loading extends AppCompatActivity {
         private Bundle checkIfSomeoneAccept() {
             Bundle b = getIntent().getExtras();
             Player player = b.getParcelable("current_player");
-            Player oppo = new Player("gal", 0, 2, 1, true, new Location(LocationManager.NETWORK_PROVIDER), "bw_basketball");
-
+            Player oppo = new Player("gal", 0, 2, 1, true, new Location(LocationManager.NETWORK_PROVIDER), "player2");
+            ArrayList<Player> players = new ArrayList<Player>();
+            players.add(player);
+            players.add(oppo);
             Bundle matchBundle = new Bundle();
-
-            matchBundle.putParcelable("player", player);
-            matchBundle.putParcelable("oppעןאo", oppo);
+            Log.d("oppo", oppo.getName());
+            matchBundle.putParcelableArrayList("players", players);
+            //matchBundle.putParcelable("players", players);
+           // matchBundle.putParcelable("player", player);
 
             return matchBundle;
         }
