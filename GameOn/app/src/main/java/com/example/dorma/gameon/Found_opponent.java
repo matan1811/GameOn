@@ -29,12 +29,17 @@ public class Found_opponent extends AppCompatActivity {
         TextView playerLeagueTextView = (TextView) findViewById(R.id.player_league);
         TextView oppoNameTextView = (TextView) findViewById(R.id.oppo_name);
         TextView oppoLeagueTextView = (TextView) findViewById(R.id.oppo_league);
+        TextView startTimeTextView = (TextView) findViewById(R.id.starttime);
+        TextView endTimeTextView = (TextView) findViewById(R.id.endtime);
         ImageView playerImage = (ImageView) findViewById(R.id.player_image);
         ImageView oppoImage = (ImageView) findViewById(R.id.oppo_image);
+
         playerNameTextView.setText(player.getName());
         playerLeagueTextView.setText("league  " + player.getLeague());
         oppoNameTextView.setText(oppo.getName());
         oppoLeagueTextView.setText("league  " + oppo.getLeague());
+        startTimeTextView.setText(player.getStartHour() + ":" + player.getStartMinute());
+        endTimeTextView.setText(player.getEndHour() + ":" + player.getEndMinute());
         int playerImageID = getResources().getIdentifier(player.getPic(), "drawable", getPackageName());
         int oppoImageID = getResources().getIdentifier(oppo.getPic(), "drawable", getPackageName());
         playerImage.setImageResource(playerImageID);

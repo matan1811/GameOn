@@ -61,6 +61,10 @@ public class Player implements Parcelable {
         this.location = location;
         this.picPath = picPath;
         this.eGames = new ArrayList<Game>();
+        this.startHour = 0;
+        this.startMinute = 0;
+        this.endHour = 0;
+        this.endMinute = 0;
         eGames.add(Game.BASKETBALL);
         eGames.add(Game.SOCCER);
         eGames.add(Game.TENNIS);
@@ -81,10 +85,10 @@ public class Player implements Parcelable {
         dest.writeByte((byte) (this.isFirstPlayer ? 1 : 0));
         location.writeToParcel(dest, flags);
         dest.writeList(this.eGames);
-        //dest.writeInt(this.startHour);
-        //dest.writeInt(this.startMinute);
-        //dest.writeInt(this.endHour);
-        //dest.writeInt(this.endMinute);
+        dest.writeInt(this.startHour);
+        dest.writeInt(this.startMinute);
+        dest.writeInt(this.endHour);
+        dest.writeInt(this.endMinute);
         dest.writeString(this.picPath);
 
         //...
@@ -110,8 +114,40 @@ public class Player implements Parcelable {
         this.isFirstPlayer = in.readByte() != 0;
         this.location = Location.CREATOR.createFromParcel(in);
         this.eGames = in.readArrayList(Game.class.getClassLoader());
+        this.startHour = in.readInt();
+        this.startMinute = in.readInt();
+        this.endHour = in.readInt();
+        this.endMinute = in.readInt();
         this.picPath = in.readString();
 
+    }
+
+    public ArrayList<Game> geteGames() {
+        return eGames;
+    }
+
+    public int getStartHour() {
+        return startHour;
+    }
+
+    public int getStartMinute() {
+        return startMinute;
+    }
+
+    public int getEndHour() {
+        return endHour;
+    }
+
+    public int getEndMinute() {
+        return endMinute;
+    }
+
+    public String getPicPath() {
+        return picPath;
+    }
+
+    public static Creator<Player> getCREATOR() {
+        return CREATOR;
     }
 
     public void populateFromJson(String json){

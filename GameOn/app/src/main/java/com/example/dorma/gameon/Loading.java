@@ -16,6 +16,16 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 /**
@@ -33,7 +43,6 @@ public class Loading extends AppCompatActivity {
 
         iv = (ImageView) findViewById(R.id.loadingicon);
         new MyTask().execute();
-
     }
 
     @Override
@@ -95,5 +104,33 @@ public class Loading extends AppCompatActivity {
             i.putExtras(matchBundle);
             startActivity(i);
         }
+
+
+    }
+    protected RequestQueue getRequest(Player player) {
+        // Instantiate the RequestQueue.
+        final RequestQueue queue = Volley.newRequestQueue(this);
+        double alt = player.getLocation().getAltitude();
+        double lan = player.getLocation().getLatitude();
+        String url = "https://blooming-falls-90763.herokuapp.com/v1/search?lon=3897.98739729&lat=28.2983728739&time=237237239872397&level=4&id=34379473984739";
+
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d("Response", "in");
+                        Log.d("MainActivityFragment", "Response - " + response);
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // TODO Auto-generated method stub
+                        Log.d("error", "in");
+                        Log.d("MainActivityFragment", "Encountered error - " + error);
+                    }
+                });
+        queue.add(jsObjRequest);
+        return queue;
     }
 }
