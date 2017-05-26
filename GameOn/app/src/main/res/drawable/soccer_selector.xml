@@ -3,10 +3,10 @@
     android:constantSize="true" >
 
     <item
-        android:drawable="@drawable/bw_soccer"
+        android:drawable="@drawable/soccer"
         android:state_checked="false" />
 
     <item
-        android:drawable="@drawable/check_bw_soccer"
+        android:drawable="@drawable/activesoccer"
         android:state_checked="true" />
 </selector>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="235dp"
+        android:layout_height="65dp"
+        app:srcCompat="@drawable/playernameback"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="32dp"
+        app:layout_constraintLeft_toLeftOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="227dp"
+        android:layout_height="72dp"
+        app:srcCompat="@drawable/playerlevelback"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        android:layout_marginLeft="40dp"
+        app:layout_constraintLeft_toLeftOf="@+id/imageView" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="143dp"
+        android:layout_height="135dp"
+        app:srcCompat="@drawable/profilebackground"
+        tools:layout_editor_absoluteY="0dp"
+        android:layout_marginRight="250dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="168dp"
+        android:layout_height="41dp"
+        app:srcCompat="@drawable/locationbutton"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:background="@null"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.505" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="27dp"
+        android:layout_height="40dp"
+        app:srcCompat="@drawable/locationtag"
+        android:layout_marginTop="47dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        android:layout_marginLeft="90dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/tennis_selector"
+        android:button="@android:color/transparent"
+        android:layout_marginLeft="90dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="225dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/soccer_selector"
+        android:button="@android:color/transparent"
+        android:layout_marginRight="90dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="225dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox5"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/basketball_selector"
+        android:button="@android:color/transparent"
+        app:layout_constraintLeft_toRightOf="@+id/checkBox6"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintRight_toLeftOf="@+id/checkBox4"
+        android:layout_marginRight="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="225dp" />
+    <CheckBox
+        android:id="@+id/checkBox6"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/baseball_selector"
+        android:button="@android:color/transparent"
+        app:layout_constraintLeft_toRightOf="@+id/checkBox"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="225dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkBox7"
+        android:layout_width="120dp"
+        android:layout_height="25.4dp"
+        android:background="@drawable/right_now"
+        android:button="@android:color/transparent"
+        android:layout_marginLeft="95dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+
+    <CheckBox
+        android:id="@+id/checkBox8"
+        android:layout_width="87.8dp"
+        android:layout_height="24.8dp"
+        android:background="@drawable/later_selector"
+        android:button="@android:color/transparent"
+        app:layout_constraintLeft_toRightOf="@+id/checkBox7"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="95dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="202dp"
+        android:layout_height="8dp"
+        app:srcCompat="@drawable/line"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="4dp"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox7" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="78.6dp"
+        android:layout_height="48.4dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:background="@null"
+        app:srcCompat="@drawable/from"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        android:layout_marginLeft="90dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="78.6dp"
+        android:layout_height="48.4dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:background="@null"
+        app:srcCompat="@drawable/until"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintLeft_toRightOf="@+id/imageButton2"
+        android:layout_marginLeft="46dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:background="@null"
+        app:srcCompat="@drawable/search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox5" />
+</android.support.constraint.ConstraintLayout>

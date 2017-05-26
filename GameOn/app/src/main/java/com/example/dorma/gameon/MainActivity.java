@@ -50,13 +50,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         endTimeButton = (Button) findViewById(R.id.endtime);
         endTimeButton.setOnClickListener(this);
         fetchPlayerData(); //Check for erros
-        TextView nameTextView = (TextView) findViewById(R.id.name);
-        ImageView image = (ImageView) findViewById(R.id.player);
+        //TextView nameTextView = (TextView) findViewById(R.id.name);
+        //ImageView image = (ImageView) findViewById(R.id.player);
         int resID = getResources().getIdentifier(player.getPic(), "drawable", getPackageName());
-        image.setImageResource(resID);
-        nameTextView.setText(player.getName());
-        TextView leageTextView = (TextView) findViewById(R.id.league);
-        leageTextView.setText("league  " + player.getLeague());
+        //image.setImageResource(resID);
+        //nameTextView.setText(player.getName());
+        //TextView leageTextView = (TextView) findViewById(R.id.league);
+        //leageTextView.setText("league  " + player.getLeague());
     }
 
   /*  @Override
