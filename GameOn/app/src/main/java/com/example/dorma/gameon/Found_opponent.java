@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class Found_opponent extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.found_opponent);
+        setContentView(R.layout.found_match);
 
         Bundle b = getIntent().getExtras();
         //Player oppo = b.getParcelable("oppo");
@@ -25,23 +25,22 @@ public class Found_opponent extends AppCompatActivity {
         Player oppo = players.get(1);
         Log.d("test_player", player.getPic());
         Log.d("test_oppo", oppo.getPic());
-        TextView playerNameTextView = (TextView) findViewById(R.id.player_name);
-        TextView playerLeagueTextView = (TextView) findViewById(R.id.player_league);
-        TextView oppoNameTextView = (TextView) findViewById(R.id.oppo_name);
-        TextView oppoLeagueTextView = (TextView) findViewById(R.id.oppo_league);
-        TextView startTimeTextView = (TextView) findViewById(R.id.starttime);
-        TextView endTimeTextView = (TextView) findViewById(R.id.endtime);
-        ImageView playerImage = (ImageView) findViewById(R.id.player_image);
-        ImageView oppoImage = (ImageView) findViewById(R.id.oppo_image);
+        TextView playerNameTextView = (TextView) findViewById(R.id.found_leftNameText);
+        TextView playerLeagueTextView = (TextView) findViewById(R.id.found_leftLevelText);
+        TextView oppoNameTextView = (TextView) findViewById(R.id.found_rightNameText);
+        TextView oppoLeagueTextView = (TextView) findViewById(R.id.found_rightLevelText);
+        TextView startTimeTextView = (TextView) findViewById(R.id.found_timeText);
+        ImageView playerImage = (ImageView) findViewById(R.id.found_leftPlayer);
+        ImageView oppoImage = (ImageView) findViewById(R.id.found_rightplayer);
 
         playerNameTextView.setText(player.getName());
-        playerLeagueTextView.setText("league  " + player.getLeague());
+        playerLeagueTextView.setText(player.getLeague() + "");
         oppoNameTextView.setText(oppo.getName());
-        oppoLeagueTextView.setText("league  " + oppo.getLeague());
+        oppoLeagueTextView.setText(oppo.getLeague() + "");
         startTimeTextView.setText(player.getStartHour() + ":" + player.getStartMinute());
-        endTimeTextView.setText(player.getEndHour() + ":" + player.getEndMinute());
-        int playerImageID = getResources().getIdentifier(player.getPic(), "drawable", getPackageName());
-        int oppoImageID = getResources().getIdentifier(oppo.getPic(), "drawable", getPackageName());
+        //endTimeTextView.setText(player.getEndHour() + ":" + player.getEndMinute());
+        int playerImageID = getResources().getIdentifier(player.getName(), "drawable", getPackageName());
+        int oppoImageID = getResources().getIdentifier(oppo.getName(), "drawable", getPackageName());
         playerImage.setImageResource(playerImageID);
         oppoImage.setImageResource(oppoImageID);
     }

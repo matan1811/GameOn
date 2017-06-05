@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <ImageView
+        android:id="@+id/found_leftPlayerLevelBack"
+        android:layout_width="90dp"
+        android:layout_height="49dp"
+        app:srcCompat="@drawable/leftplayerlevelback"
+        app:layout_constraintTop_toTopOf="@+id/found_leftPlayer"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="84dp"
+        app:layout_constraintLeft_toLeftOf="@+id/found_leftPlayer" />
+
+    <ImageView
+        android:id="@+id/found_leftPlayerNameBack"
+        android:layout_width="94dp"
+        android:layout_height="28dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="22dp"
+        app:layout_constraintLeft_toLeftOf="@+id/found_leftPlayer"
+        app:layout_constraintTop_toTopOf="@+id/found_leftPlayer"
+        app:srcCompat="@drawable/leftplayernameback" />
+
+    <ImageView
+        android:id="@+id/found_rightPlayerLevelBack"
+        android:layout_width="90dp"
+        android:layout_height="49dp"
+        app:srcCompat="@drawable/rightplayerlevelback"
+        android:layout_marginRight="84dp"
+        app:layout_constraintRight_toRightOf="@+id/found_rightplayer"
+        app:layout_constraintTop_toTopOf="@+id/found_rightplayer"
+        android:layout_marginTop="45dp" />
+
+    <ImageView
+        android:id="@+id/found_rightPlayerNameBack"
+        android:layout_width="94dp"
+        android:layout_height="28dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginTop="22dp"
+        app:layout_constraintRight_toRightOf="@+id/found_rightplayer"
+        app:layout_constraintTop_toTopOf="@+id/found_rightplayer"
+        app:srcCompat="@drawable/rightplayernameback" />
+
+    <ImageView
+        android:id="@+id/found_rightPlayerBack"
+        android:layout_width="116dp"
+        android:layout_height="116dp"
+        app:srcCompat="@drawable/rightplayer"
+        android:layout_marginRight="0dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <ImageView
+        android:id="@+id/found_leftPlayerBack"
+        android:layout_width="118dp"
+        android:layout_height="118dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/leftplayer" />
+
+    <ImageView
+        android:id="@+id/found_rightplayer"
+        android:layout_width="119dp"
+        android:layout_height="119dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profilebackground"
+        android:layout_marginRight="0dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageView
+        android:id="@+id/found_leftPlayer"
+        android:layout_width="119dp"
+        android:layout_height="119dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profilebackground" />
+
+    <ImageView
+        android:id="@+id/found_vs"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        app:srcCompat="@drawable/vs"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="60dp"
+        app:layout_constraintHorizontal_bias="0.501" />
+
+    <ImageView
+        android:id="@+id/found_location"
+        android:layout_width="168dp"
+        android:layout_height="21dp"
+        app:srcCompat="@drawable/locationbuttonnoarrow"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="160dp" />
+
+    <ImageView
+        android:id="@+id/found_locationIcon"
+        android:layout_width="27dp"
+        android:layout_height="40dp"
+        app:srcCompat="@drawable/locationtag"
+        app:layout_constraintBottom_toBottomOf="@+id/found_location"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="95dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <ImageView
+        android:id="@+id/found_time"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/found_location"
+        app:srcCompat="@drawable/locationbutton" />
+
+    <ImageView
+        android:id="@+id/found_timeIcon"
+        android:layout_width="32dp"
+        android:layout_height="40dp"
+        app:srcCompat="@drawable/timeicon"
+        app:layout_constraintBottom_toBottomOf="@+id/found_time"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="95dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <ImageView
+        android:id="@+id/found_bringBallIcon"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        app:srcCompat="@drawable/bringballicon"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/found_time"
+        app:layout_constraintHorizontal_bias="0.501" />
+
+    <ImageView
+        android:id="@+id/found_leftBringBallBack"
+        android:layout_width="134dp"
+        android:layout_height="26dp"
+        app:srcCompat="@drawable/bringballleftback"
+        app:layout_constraintRight_toLeftOf="@+id/found_bringBallIcon"
+        android:layout_marginRight="0dp"
+        app:layout_constraintTop_toTopOf="@+id/found_bringBallIcon"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/found_bringBallIcon"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="0.521" />
+
+    <ImageView
+        android:id="@+id/found_rightBringBallBack"
+        android:layout_width="134dp"
+        android:layout_height="26dp"
+        app:srcCompat="@drawable/bringballrightback"
+        app:layout_constraintTop_toTopOf="@+id/found_bringBallIcon"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/found_bringBallIcon"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/found_bringBallIcon"
+        android:layout_marginLeft="0dp" />
+
+    <ImageView
+        android:id="@+id/found_rightbringBallButton"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/found_rightBringBallBack"
+        app:layout_constraintRight_toRightOf="@+id/found_rightBringBallBack"
+        app:layout_constraintTop_toTopOf="@+id/found_rightBringBallBack"
+        app:srcCompat="@drawable/bringballbutton" />
+
+    <ImageView
+        android:id="@+id/found_leftbringBallButton"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        app:srcCompat="@drawable/bringballbutton"
+        app:layout_constraintTop_toTopOf="@+id/found_leftBringBallBack"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/found_leftBringBallBack"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="4dp"
+        app:layout_constraintLeft_toLeftOf="@+id/found_leftBringBallBack" />
+
+    <ImageView
+        android:id="@+id/found_aprroveButton"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        app:srcCompat="@drawable/approvematch"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/found_bringBallIcon" />
+
+    <ImageButton
+        android:id="@+id/main_leagueMenu"
+        android:layout_width="62dp"
+        android:layout_height="94dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/leaguemenu"
+        android:layout_marginLeft="95dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="95dp"
+        app:layout_constraintTop_toTopOf="@+id/main_homeButton" />
+
+    <ImageButton
+        android:id="@+id/main_profileMenu"
+        android:layout_width="62dp"
+        android:layout_height="94dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/profilemenu"
+        android:layout_marginRight="98dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="98dp"
+        app:layout_constraintTop_toTopOf="@+id/main_homeButton" />
+
+    <ImageButton
+        android:id="@+id/main_homeButton"
+        android:layout_width="119dp"
+        android:layout_height="82dp"
+        android:layout_marginRight="132dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/home"
+        android:layout_marginTop="18dp"
+        app:layout_constraintTop_toBottomOf="@+id/found_aprroveButton"
+        android:layout_marginEnd="132dp" />
+
+    <TextView
+        android:id="@+id/found_leftLevelText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:text="4"
+        android:textSize="26dp"
+        android:textColor="#ffff"
+        app:layout_constraintBottom_toBottomOf="@+id/found_leftPlayerLevelBack"
+        app:layout_constraintLeft_toLeftOf="@+id/found_leftPlayerLevelBack"
+        app:layout_constraintRight_toLeftOf="@+id/found_vs"
+        app:layout_constraintTop_toTopOf="@+id/found_leftPlayerLevelBack"
+        app:layout_constraintHorizontal_bias="0.509" />
+
+    <TextView
+        android:id="@+id/found_leftNameText"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="9dp"
+        android:gravity="center"
+        android:text="TextView"
+        android:textColor="#ffff"
+        app:layout_constraintBottom_toTopOf="@+id/found_leftPlayerLevelBack"
+        app:layout_constraintLeft_toLeftOf="@+id/found_leftPlayerNameBack"
+        app:layout_constraintRight_toRightOf="@+id/found_leftPlayerNameBack"
+        app:layout_constraintTop_toTopOf="@+id/found_leftPlayerNameBack"
+        app:layout_constraintVertical_bias="0.466"/>
+
+    <TextView
+        android:id="@+id/found_rightNameText"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="9dp"
+        android:gravity="center"
+        android:text="TextView"
+        android:textColor="#ffff"
+        app:layout_constraintBottom_toTopOf="@+id/found_rightPlayerLevelBack"
+        app:layout_constraintLeft_toLeftOf="@+id/found_rightPlayerNameBack"
+        app:layout_constraintRight_toRightOf="@+id/found_rightPlayerNameBack"
+        app:layout_constraintTop_toTopOf="@+id/found_rightPlayerNameBack"
+        app:layout_constraintVertical_bias="0.421" />
+
+    <TextView
+        android:id="@+id/found_rightLevelText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:text="4"
+        android:textSize="26dp"
+        android:textColor="#ffff"
+        app:layout_constraintBottom_toBottomOf="@+id/found_rightPlayerLevelBack"
+        app:layout_constraintLeft_toRightOf="@+id/found_vs"
+        app:layout_constraintTop_toTopOf="@+id/found_rightPlayerLevelBack"
+        app:layout_constraintRight_toRightOf="@+id/found_rightPlayerLevelBack"
+        app:layout_constraintHorizontal_bias="0.431" />
+
+    <TextView
+        android:id="@+id/found_locationText"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/found_location"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/found_location"
+        app:layout_constraintTop_toTopOf="@+id/found_location"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/found_location"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/found_timeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:text="00:00"
+        app:layout_constraintBottom_toBottomOf="@+id/found_time"
+        app:layout_constraintLeft_toLeftOf="@+id/found_time"
+        app:layout_constraintRight_toRightOf="@+id/found_time"
+        app:layout_constraintTop_toTopOf="@+id/found_time" />
+</android.support.constraint.ConstraintLayout>

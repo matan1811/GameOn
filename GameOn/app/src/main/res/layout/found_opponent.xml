@@ -27,12 +27,12 @@
         tools:context="com.example.dorma.gameon.MainActivity">
 
 
-        <ImageView
+        <!--ImageView
             android:id="@+id/player_image"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/bw_basketball" />
+            app:srcCompat="@drawable/bw_basketball" /-->
 
         <LinearLayout
             android:id="@+id/player_stat"
@@ -68,12 +68,12 @@
 
         </LinearLayout>
 
-        <ImageView
+        <!--ImageView
             android:id="@+id/oppo_image"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/bw_basketball" />
+            app:srcCompat="@drawable/bw_basketball" /-->
 
         <LinearLayout
             android:id="@+id/oppo_stat"
@@ -233,13 +233,13 @@
 
     </LinearLayout>
 
-    <ImageView
+    <!--ImageView
         android:id="@+id/search_now"
         android:layout_width="130dp"
         android:layout_height="120dp"
         android:layout_gravity="center"
         android:layout_weight="2"
-        android:src="@drawable/powerbutton2" />
+        android:src="@drawable/powerbutton2" /-->
 
     <!--<FrameLayout android:layout_width="wrap_content"
         android:layout_height="wrap_content"

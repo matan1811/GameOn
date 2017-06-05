@@ -10,61 +10,80 @@
 
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/main_playerNameBackgound"
         android:layout_width="235dp"
         android:layout_height="65dp"
         app:srcCompat="@drawable/playernameback"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="24dp"
-        android:layout_marginLeft="32dp"
-        app:layout_constraintLeft_toLeftOf="@+id/imageView" />
+        android:layout_marginLeft="49dp"
+        app:layout_constraintLeft_toLeftOf="@+id/main_profilePicBackground"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/main_profilePicBackground"
+        app:layout_constraintVertical_bias="0.288"
+        android:layout_marginStart="49dp" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/main_playerLevelBackground"
         android:layout_width="227dp"
         android:layout_height="72dp"
         app:srcCompat="@drawable/playerlevelback"
         android:layout_marginTop="32dp"
-        app:layout_constraintTop_toTopOf="@+id/imageView2"
-        android:layout_marginLeft="40dp"
-        app:layout_constraintLeft_toLeftOf="@+id/imageView" />
+        app:layout_constraintTop_toTopOf="@+id/main_playerNameBackgound"
+        android:layout_marginLeft="57dp"
+        app:layout_constraintLeft_toLeftOf="@+id/main_profilePicBackground"
+        android:layout_marginStart="57dp"/>
+
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/main_profilePicBackground"
         android:layout_width="143dp"
         android:layout_height="135dp"
         app:srcCompat="@drawable/profilebackground"
-        tools:layout_editor_absoluteY="0dp"
-        android:layout_marginRight="250dp"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:layout_marginRight="246dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="440dp"
+        android:layout_marginEnd="247dp" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
+    <ImageView
+        android:id="@+id/main_profilePic"
+        android:layout_width="140dp"
+        android:layout_height="132dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/profilebackground"
+        android:layout_marginRight="140dp"
+        app:layout_constraintRight_toRightOf="@+id/main_playerLevelBackground"
+        app:layout_constraintBottom_toBottomOf="@+id/main_locationButton"
+        android:layout_marginBottom="32dp" />
+
+    <Spinner
+        android:id="@+id/main_locationButton"
         android:layout_width="168dp"
-        android:layout_height="41dp"
-        app:srcCompat="@drawable/locationbutton"
+        android:layout_height="21dp"
+        android:background="@drawable/locationbutton"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
-        android:background="@null"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/main_playerLevelBackground"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.505" />
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:spinnerMode="dropdown"
+        android:layout_marginTop="14dp" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/main_locationTag"
         android:layout_width="27dp"
         android:layout_height="40dp"
         app:srcCompat="@drawable/locationtag"
-        android:layout_marginTop="47dp"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        android:layout_marginLeft="90dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:layout_marginLeft="95dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/main_locationButton"
+        android:layout_marginBottom="0dp" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/main_tennisSelector"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/tennis_selector"
@@ -72,10 +91,13 @@
         android:layout_marginLeft="90dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="225dp" />
+        android:layout_marginBottom="225dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/main_fromTimeButton"
+        android:layout_marginStart="90dp" />
 
     <CheckBox
-        android:id="@+id/checkBox4"
+        android:id="@+id/main_soccerSelector"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/soccer_selector"
@@ -83,58 +105,67 @@
         android:layout_marginRight="90dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="225dp" />
+        android:layout_marginBottom="225dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/main_untilTimeButton"
+        android:layout_marginEnd="90dp" />
 
     <CheckBox
-        android:id="@+id/checkBox5"
+        android:id="@+id/main_basketballSelector"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/basketball_selector"
         android:button="@android:color/transparent"
-        app:layout_constraintLeft_toRightOf="@+id/checkBox6"
-        android:layout_marginLeft="0dp"
-        app:layout_constraintRight_toLeftOf="@+id/checkBox4"
-        android:layout_marginRight="0dp"
+        app:layout_constraintLeft_toRightOf="@+id/main_baseballSelector"
+        app:layout_constraintRight_toLeftOf="@+id/main_soccerSelector"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="225dp" />
+        android:layout_marginBottom="225dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/main_untilTimeButton" />
+
     <CheckBox
-        android:id="@+id/checkBox6"
+        android:id="@+id/main_baseballSelector"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/baseball_selector"
         android:button="@android:color/transparent"
-        app:layout_constraintLeft_toRightOf="@+id/checkBox"
-        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toRightOf="@+id/main_tennisSelector"
         android:layout_marginBottom="225dp"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/main_fromTimeButton" />
 
-    <CheckBox
-        android:id="@+id/checkBox7"
+    <ImageView
+        android:id="@+id/main_rightNowButton"
         android:layout_width="120dp"
-        android:layout_height="25.4dp"
-        android:background="@drawable/right_now"
+        android:layout_height="26dp"
+        android:background="@drawable/rightnow"
+        android:tag="inactive"
         android:button="@android:color/transparent"
         android:layout_marginLeft="95dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/main_locationButton"
+        android:layout_marginStart="95dp" />
 
-    <CheckBox
-        android:id="@+id/checkBox8"
-        android:layout_width="87.8dp"
-        android:layout_height="24.8dp"
-        android:background="@drawable/later_selector"
+    <ImageView
+        android:id="@+id/main_laterButton"
+        android:layout_width="88dp"
+        android:layout_height="25dp"
+        android:background="@drawable/activelater"
+        android:tag="active"
         android:button="@android:color/transparent"
-        app:layout_constraintLeft_toRightOf="@+id/checkBox7"
-        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toRightOf="@+id/main_rightNowButton"
         android:layout_marginRight="95dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.428"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/main_locationButton"
+        android:layout_marginEnd="95dp" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/main_separateLine"
         android:layout_width="202dp"
         android:layout_height="8dp"
         app:srcCompat="@drawable/line"
@@ -143,48 +174,146 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="4dp"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox7" />
+        app:layout_constraintTop_toBottomOf="@+id/main_rightNowButton"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="78.6dp"
-        android:layout_height="48.4dp"
+        android:id="@+id/main_fromTimeButton"
+        android:layout_width="79dp"
+        android:layout_height="49dp"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
         android:background="@null"
-        app:srcCompat="@drawable/from"
+        app:srcCompat="@drawable/activefrom"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/main_separateLine"
         android:layout_marginLeft="90dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="78.6dp"
-        android:layout_height="48.4dp"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
-        android:background="@null"
-        app:srcCompat="@drawable/until"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:layout_constraintLeft_toRightOf="@+id/imageButton2"
-        android:layout_marginLeft="46dp" />
-
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
-        android:background="@null"
-        app:srcCompat="@drawable/search"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="90dp" />
+
+    <ImageButton
+        android:id="@+id/main_untilTimeButton"
+        android:layout_width="79dp"
+        android:layout_height="49dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:background="@null"
+        app:srcCompat="@drawable/activeuntil"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox5" />
+        app:layout_constraintTop_toBottomOf="@+id/main_separateLine"
+        app:layout_constraintLeft_toRightOf="@+id/main_fromTimeButton"
+        android:layout_marginLeft="46dp"
+        android:layout_marginStart="46dp" />
+
+    <ImageView
+        android:id="@+id/main_searchButton"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_basketballSelector"
+        app:srcCompat="@drawable/search"
+        app:layout_constraintVertical_bias="0.291"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
+
+    <ImageButton
+        android:id="@+id/main_leagueMenu"
+        android:layout_width="62dp"
+        android:layout_height="94dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/leaguemenu"
+        android:layout_marginLeft="95dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/main_searchButton"
+        android:layout_marginStart="95dp" />
+
+    <ImageButton
+        android:id="@+id/main_profileMenu"
+        android:layout_width="62dp"
+        android:layout_height="94dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/profilemenu"
+        android:layout_marginRight="98dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/main_searchButton"
+        android:layout_marginEnd="98dp" />
+
+    <ImageButton
+        android:id="@+id/main_homeButton"
+        android:layout_width="119dp"
+        android:layout_height="82dp"
+        android:layout_marginRight="132dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/home"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/main_searchButton"
+        android:layout_marginEnd="132dp" />
+
+    <TextView
+        android:id="@+id/main_levelText"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="22dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="20dp"
+        android:text="LEVEL"
+        android:textColor="#ffff"
+        android:textSize="26dp"
+        app:layout_constraintBottom_toBottomOf="@+id/main_playerLevelBackground"
+        app:layout_constraintHorizontal_bias="0.848"
+        app:layout_constraintLeft_toLeftOf="@+id/main_playerLevelBackground"
+        app:layout_constraintRight_toRightOf="@+id/main_playerLevelBackground" />
+
+    <TextView
+        android:id="@+id/main_playerName"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="23dp"
+        android:text="TextView"
+        android:textColor="#ffff"
+        app:layout_constraintRight_toRightOf="@+id/main_playerNameBackgound"
+        app:layout_constraintTop_toTopOf="@+id/main_playerNameBackgound" />
+
+    <TextView
+        android:id="@+id/main_fromTimeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="27dp"
+        android:text="00:00"
+        app:layout_constraintRight_toRightOf="@+id/main_fromTimeButton"
+        app:layout_constraintTop_toTopOf="@+id/main_fromTimeButton" />
+
+    <TextView
+        android:id="@+id/main_untilTimeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00"
+        android:layout_marginRight="32dp"
+        app:layout_constraintRight_toRightOf="@+id/main_untilTimeButton"
+        app:layout_constraintTop_toTopOf="@+id/main_untilTimeButton"
+        android:layout_marginTop="27dp" />
+
 </android.support.constraint.ConstraintLayout>
+

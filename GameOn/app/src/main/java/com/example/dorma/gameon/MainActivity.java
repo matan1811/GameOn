@@ -12,9 +12,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.NumberPicker;
@@ -30,33 +33,60 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private ImageView searchNow;
     private Player player;
-    private Button startTimeButton;
-    private Button endTimeButton;
+    private ImageButton startTimeButton;
+    private ImageButton endTimeButton;
+    private TextView endTimeText;
+    private TextView startTimeText;
+    private ImageView later;
+    private ImageView rightNow;
     static final int DIALOG_ID = 0;
+    private Calendar mcurrentTime;
+    int hour, minute;
+    TimePickerDialog mTimePicker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main);
 
         //final ImageView search = (ImageView) findViewById(R.id.search_round);
         //final Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate2);
         //search.startAnimation(animation);
 
-        searchNow = (ImageView) findViewById(R.id.search_now);
+        Spinner dropdown = (Spinner)findViewById(R.id.main_locationButton);
+        String[] items = new String[]{"Sportek Hertzelia", "Sportek Hertzelia", "Sportek Hertzelia"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        dropdown.setAdapter(adapter);
+
+        searchNow = (ImageView) findViewById(R.id.main_searchButton);
         searchNow.setOnClickListener(this);
-        startTimeButton = (Button) findViewById(R.id.starttime);
+        startTimeButton = (ImageButton) findViewById(R.id.main_fromTimeButton);
         startTimeButton.setOnClickListener(this);
-        endTimeButton = (Button) findViewById(R.id.endtime);
+        endTimeButton = (ImageButton) findViewById(R.id.main_untilTimeButton);
         endTimeButton.setOnClickListener(this);
+        endTimeText = (TextView) findViewById(R.id.main_untilTimeText);
+        startTimeText = (TextView) findViewById(R.id.main_fromTimeText);
+        later = (ImageView) findViewById(R.id.main_laterButton);
+        later.setOnClickListener(this);
+        rightNow = (ImageView) findViewById(R.id.main_rightNowButton);
+        rightNow.setOnClickListener(this);
         fetchPlayerData(); //Check for erros
-        //TextView nameTextView = (TextView) findViewById(R.id.name);
-        //ImageView image = (ImageView) findViewById(R.id.player);
+        TextView nameTextView = (TextView) findViewById(R.id.main_playerName);
+        ImageView image = (ImageView) findViewById(R.id.main_profilePic);
         int resID = getResources().getIdentifier(player.getPic(), "drawable", getPackageName());
-        //image.setImageResource(resID);
-        //nameTextView.setText(player.getName());
-        //TextView leageTextView = (TextView) findViewById(R.id.league);
-        //leageTextView.setText("league  " + player.getLeague());
+        image.setImageResource(resID);
+
+        image.getLayoutParams().height = 230;
+        image.getLayoutParams().width = 230;
+        image.requestLayout();
+        nameTextView.setText(player.getName());
+        TextView leagueTextView = (TextView) findViewById(R.id.main_levelText);
+        leagueTextView.setText("LEVEL  " + player.getLeague());
+        mcurrentTime = Calendar.getInstance();
+        hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+        minute = mcurrentTime.get(Calendar.MINUTE);
+        startTimeText.setText(hour + ":" + String.format("%02d", minute));
+        endTimeText.setText((hour + 1) + ":" + String.format("%02d", minute));
     }
 
   /*  @Override
@@ -77,16 +107,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         //int viewId = view.getId();
-        Calendar mcurrentTime;
-        mcurrentTime = Calendar.getInstance();
-        int hour, minute;
-        TimePickerDialog mTimePicker;
+
         switch(view.getId()){
-            case R.id.search_now:
+            case R.id.main_searchButton:
                 Log.d("clicked", "clicked");
 
                 if (collectGamesFromUI() == 0) {
-                    // print to screen error message
+                    Log.d("error", "didn't collect games");
                     return;
                 }
 
@@ -106,15 +133,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 i.putExtras(b);
                 startActivity(i);
                 break;
-            case R.id.starttime:
+            case R.id.main_fromTimeButton:
                 //showDialog(DIALOG_ID);
                 hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
                 minute = mcurrentTime.get(Calendar.MINUTE);
                 mTimePicker = new CustomTimePickerDialog(MainActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                        startTimeButton.setText( selectedHour + ":" + selectedMinute);
-                        endTimeButton.setText((selectedHour+1) + ":" + selectedMinute);
+                        startTimeText.setText( selectedHour + ":" + String.format("%02d", selectedMinute));
+                        endTimeText.setText((selectedHour+1) + ":" + String.format("%02d", selectedMinute));
                         player.setStartHour(selectedHour);
                         player.setStartMinute(selectedMinute);
                     }
@@ -122,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mTimePicker.setTitle("Select Time");
                 mTimePicker.show();
                 break;
-            case R.id.endtime:
+            case R.id.main_untilTimeButton:
                 //showDialog(DIALOG_ID);
                 mcurrentTime.set(Calendar.MINUTE, player.getStartMinute());
                 mcurrentTime.set(Calendar.HOUR_OF_DAY, player.getStartHour()+1);
@@ -131,7 +158,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mTimePicker = new CustomTimePickerDialog(MainActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                        endTimeButton.setText( selectedHour + ":" + selectedMinute);
+                        endTimeText.setText( selectedHour + ":" + String.format("%02d", selectedMinute));
                         player.setEndHour(selectedHour);
                         player.setEndMinute(selectedMinute);
                     }
@@ -139,6 +166,55 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mTimePicker.setTitle("Select Time");
                 mTimePicker.show();
                 break;
+            case R.id.main_laterButton:
+                if (later.getTag() == "active"){
+                    later.setTag("inactive");
+                    rightNow.setTag("active");
+                    int resID = getResources().getIdentifier("later", "drawable", getPackageName());
+                    later.setImageResource(resID);
+                    resID = getResources().getIdentifier("activerightnow", "drawable", getPackageName());
+                    rightNow.setImageResource(resID);
+                    resID = getResources().getIdentifier("from", "drawable", getPackageName());
+                    startTimeButton.setImageResource(resID);
+                    resID = getResources().getIdentifier("until", "drawable", getPackageName());
+                    endTimeButton.setImageResource(resID);
+                } else {
+                    rightNow.setTag("inactive");
+                    later.setTag("active");
+                    int resID = getResources().getIdentifier("activelater", "drawable", getPackageName());
+                    later.setImageResource(resID);
+                    resID = getResources().getIdentifier("rightnow", "drawable", getPackageName());
+                    rightNow.setImageResource(resID);
+                    resID = getResources().getIdentifier("activefrom", "drawable", getPackageName());
+                    startTimeButton.setImageResource(resID);
+                    resID = getResources().getIdentifier("activeuntil", "drawable", getPackageName());
+                    endTimeButton.setImageResource(resID);
+                }
+                break;
+            case R.id.main_rightNowButton:
+                if (rightNow.getTag() == "inactive"){
+                    later.setTag("inactive");
+                    rightNow.setTag("active");
+                    int resID = getResources().getIdentifier("later", "drawable", getPackageName());
+                    later.setImageResource(resID);
+                    resID = getResources().getIdentifier("activerightnow", "drawable", getPackageName());
+                    rightNow.setImageResource(resID);
+                    resID = getResources().getIdentifier("from", "drawable", getPackageName());
+                    startTimeButton.setImageResource(resID);
+                    resID = getResources().getIdentifier("until", "drawable", getPackageName());
+                    endTimeButton.setImageResource(resID);
+                } else {
+                    rightNow.setTag("inactive");
+                    later.setTag("active");
+                    int resID = getResources().getIdentifier("activelater", "drawable", getPackageName());
+                    later.setImageResource(resID);
+                    resID = getResources().getIdentifier("rightnow", "drawable", getPackageName());
+                    rightNow.setImageResource(resID);
+                    resID = getResources().getIdentifier("activefrom", "drawable", getPackageName());
+                    startTimeButton.setImageResource(resID);
+                    resID = getResources().getIdentifier("activeuntil", "drawable", getPackageName());
+                    endTimeButton.setImageResource(resID);
+                }
         }
 
     }
@@ -153,9 +229,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // the user wanted games
         // return the number of games that was picked
         int counter = 0;
-        CheckBox tennisCheckBox = (CheckBox)findViewById(R.id.tennis_image);
-        CheckBox basketballCheckBox = (CheckBox)findViewById(R.id.basketball_image);
-        CheckBox soccerCheckBox = (CheckBox)findViewById(R.id.soccer_image);
+        CheckBox tennisCheckBox = (CheckBox)findViewById(R.id.main_tennisSelector);
+        CheckBox basketballCheckBox = (CheckBox)findViewById(R.id.main_basketballSelector);
+        CheckBox soccerCheckBox = (CheckBox)findViewById(R.id.main_soccerSelector);
+        CheckBox baseBallCheckBox = (CheckBox) findViewById(R.id.main_baseballSelector);
         ArrayList<Game> games = new ArrayList<>();
         if(tennisCheckBox.isChecked()){
             counter++;
@@ -169,6 +246,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             counter++;
             games.add(Game.SOCCER);
         }
+        if(baseBallCheckBox.isChecked()){
+            counter++;
+            games.add(Game.BASEBALL);
+        }
         player.seteGames(games);
         return counter;
     }
@@ -179,8 +260,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void fetchPlayerData() {
         if (player == null) {
-            Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.bw_basketball);
-            player = new Player("matan", 0, 1, 1, true, new Location(LocationManager.NETWORK_PROVIDER), "player1");
+            player = new Player("yossi", 0, 1, 1, true, new Location(LocationManager.NETWORK_PROVIDER), "yossi");
         }
 
         // update player's data

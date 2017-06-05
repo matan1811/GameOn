@@ -209,12 +209,12 @@
         android:layout_gravity="center"
         android:layout_weight="2"/>
 
-    <ImageView android:layout_width="wrap_content"
+    <!--ImageView android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:src="@drawable/settings"
         android:id="@+id/menu"
         android:layout_gravity="center|bottom"
-        android:layout_weight="1"/>
+        android:layout_weight="1"/-->
 
     <!--<FrameLayout android:layout_width="wrap_content"
         android:layout_height="wrap_content"
