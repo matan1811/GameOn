@@ -15,7 +15,8 @@
         app:layout_constraintTop_toTopOf="@+id/winlose_leftPlayer"
         android:layout_marginTop="45dp"
         android:layout_marginLeft="84dp"
-        app:layout_constraintLeft_toLeftOf="@+id/winlose_leftPlayer" />
+        app:layout_constraintLeft_toLeftOf="@+id/winlose_leftPlayer"
+        android:layout_marginStart="84dp" />
 
     <ImageView
         android:id="@+id/winlose_leftPlayerNameBack"
@@ -25,7 +26,8 @@
         android:layout_marginTop="22dp"
         app:layout_constraintLeft_toLeftOf="@+id/winlose_leftPlayer"
         app:layout_constraintTop_toTopOf="@+id/winlose_leftPlayer"
-        app:srcCompat="@drawable/leftplayernameback" />
+        app:srcCompat="@drawable/leftplayernameback"
+        android:layout_marginStart="80dp" />
 
     <ImageView
         android:id="@+id/winlose_rightPlayerLevelBack"
@@ -35,7 +37,8 @@
         android:layout_marginRight="84dp"
         app:layout_constraintRight_toRightOf="@+id/winlose_rightplayer"
         app:layout_constraintTop_toTopOf="@+id/winlose_rightplayer"
-        android:layout_marginTop="45dp" />
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="84dp" />
 
     <ImageView
         android:id="@+id/winlose_rightPlayerNameBack"
@@ -45,14 +48,14 @@
         android:layout_marginTop="22dp"
         app:layout_constraintRight_toRightOf="@+id/winlose_rightplayer"
         app:layout_constraintTop_toTopOf="@+id/winlose_rightplayer"
-        app:srcCompat="@drawable/rightplayernameback" />
+        app:srcCompat="@drawable/rightplayernameback"
+        android:layout_marginEnd="80dp" />
 
     <ImageView
         android:id="@+id/winlose_rightPlayerBack"
         android:layout_width="116dp"
         android:layout_height="116dp"
         app:srcCompat="@drawable/rightplayer"
-        android:layout_marginRight="0dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="8dp"/>
@@ -61,7 +64,6 @@
         android:id="@+id/winlose_leftPlayerBack"
         android:layout_width="118dp"
         android:layout_height="118dp"
-        android:layout_marginLeft="0dp"
         android:layout_marginTop="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -74,14 +76,12 @@
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/profilebackground"
-        android:layout_marginRight="0dp"
         app:layout_constraintRight_toRightOf="parent" />
 
     <ImageView
         android:id="@+id/winlose_leftPlayer"
         android:layout_width="119dp"
         android:layout_height="119dp"
-        android:layout_marginLeft="0dp"
         android:layout_marginTop="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -98,7 +98,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="60dp"
-        app:layout_constraintHorizontal_bias="0.501" />
+        app:layout_constraintHorizontal_bias="0.501"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <ImageView
         android:id="@+id/winlose_bringBallIcon"
@@ -110,19 +112,20 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/winlose_vs"
-        app:srcCompat="@drawable/cup" />
+        app:srcCompat="@drawable/cup"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <ImageView
         android:id="@+id/winlose_leftBringBallBack"
         android:layout_width="94dp"
         android:layout_height="40dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginRight="0dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/winlose_bringBallIcon"
         app:layout_constraintRight_toLeftOf="@+id/winlose_bringBallIcon"
         app:layout_constraintTop_toTopOf="@+id/winlose_bringBallIcon"
-        app:layout_constraintVertical_bias="0.521"
+        app:layout_constraintVertical_bias="0.55"
         app:srcCompat="@drawable/winloseleftback" />
 
     <ImageView
@@ -130,7 +133,6 @@
         android:layout_width="94dp"
         android:layout_height="40dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="0dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/winlose_bringBallIcon"
         app:layout_constraintLeft_toRightOf="@+id/winlose_bringBallIcon"
@@ -141,14 +143,15 @@
         android:id="@+id/winlose_rightbringBallButton"
         android:layout_width="31dp"
         android:layout_height="31dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintBottom_toBottomOf="@+id/winlose_rightBringBallBack"
         app:layout_constraintRight_toRightOf="@+id/winlose_rightBringBallBack"
         app:layout_constraintTop_toTopOf="@+id/winlose_rightBringBallBack"
         app:srcCompat="@drawable/winbutton"
-        app:layout_constraintVertical_bias="0.428" />
+        app:layout_constraintVertical_bias="1.0"
+        android:layout_marginStart="48dp"
+        app:layout_constraintLeft_toRightOf="@+id/winlose_bringBallIcon"
+        android:layout_marginBottom="5dp" />
 
     <ImageView
         android:id="@+id/winlose_leftbringBallButton"
@@ -161,22 +164,25 @@
         app:layout_constraintLeft_toLeftOf="@+id/winlose_leftBringBallBack"
         app:layout_constraintTop_toTopOf="@+id/winlose_leftBringBallBack"
         app:srcCompat="@drawable/winbutton"
-        app:layout_constraintVertical_bias="0.571" />
+        app:layout_constraintVertical_bias="0.571"
+        android:layout_marginStart="8dp" />
 
     <ImageView
-        android:id="@+id/winlose_aprroveButton"
+        android:id="@+id/winlose_endmatch"
         android:layout_width="130dp"
         android:layout_height="130dp"
-        app:srcCompat="@drawable/approvematch"
+        app:srcCompat="@drawable/endmatch"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/winlose_bringBallIcon" />
+        app:layout_constraintTop_toBottomOf="@+id/winlose_bringBallIcon"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <ImageButton
-        android:id="@+id/main_leagueMenu"
+        android:id="@+id/winlose_leagueMenu"
         android:layout_width="62dp"
         android:layout_height="94dp"
         android:adjustViewBounds="true"
@@ -214,7 +220,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:srcCompat="@drawable/home"
         android:layout_marginTop="18dp"
-        app:layout_constraintTop_toBottomOf="@+id/winlose_aprroveButton"
+        app:layout_constraintTop_toBottomOf="@+id/winlose_endmatch"
         android:layout_marginEnd="132dp" />
 
     <TextView
@@ -232,7 +238,9 @@
         app:layout_constraintLeft_toLeftOf="@+id/winlose_leftPlayerLevelBack"
         app:layout_constraintRight_toLeftOf="@+id/winlose_vs"
         app:layout_constraintTop_toTopOf="@+id/winlose_leftPlayerLevelBack"
-        app:layout_constraintHorizontal_bias="0.509" />
+        app:layout_constraintHorizontal_bias="0.509"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <TextView
         android:id="@+id/winlose_leftNameText"
@@ -249,7 +257,9 @@
         app:layout_constraintLeft_toLeftOf="@+id/winlose_leftPlayerNameBack"
         app:layout_constraintRight_toRightOf="@+id/winlose_leftPlayerNameBack"
         app:layout_constraintTop_toTopOf="@+id/winlose_leftPlayerNameBack"
-        app:layout_constraintVertical_bias="0.466"/>
+        app:layout_constraintVertical_bias="0.466"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="8dp" />
 
     <TextView
         android:id="@+id/winlose_rightNameText"
@@ -266,7 +276,9 @@
         app:layout_constraintLeft_toLeftOf="@+id/winlose_rightPlayerNameBack"
         app:layout_constraintRight_toRightOf="@+id/winlose_rightPlayerNameBack"
         app:layout_constraintTop_toTopOf="@+id/winlose_rightPlayerNameBack"
-        app:layout_constraintVertical_bias="0.421" />
+        app:layout_constraintVertical_bias="0.421"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="20dp" />
 
     <TextView
         android:id="@+id/winlose_rightLevelText"
@@ -283,6 +295,8 @@
         app:layout_constraintLeft_toRightOf="@+id/winlose_vs"
         app:layout_constraintTop_toTopOf="@+id/winlose_rightPlayerLevelBack"
         app:layout_constraintRight_toRightOf="@+id/winlose_rightPlayerLevelBack"
-        app:layout_constraintHorizontal_bias="0.431" />
+        app:layout_constraintHorizontal_bias="0.431"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
 </android.support.constraint.ConstraintLayout>

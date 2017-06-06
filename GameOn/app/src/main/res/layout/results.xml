@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:text="Win"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="93dp"
+        android:id="@+id/button"
+        app:layout_constraintTop_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toBottomOf="@+id/button2"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:text="Lose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteY="274dp"
+        android:id="@+id/button2"
+        app:layout_constraintLeft_toRightOf="@+id/button"
+        android:layout_marginStart="24dp" />
+
+</android.support.constraint.ConstraintLayout>

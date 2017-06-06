@@ -219,7 +219,7 @@
         app:layout_constraintTop_toBottomOf="@+id/found_bringBallIcon" />
 
     <ImageButton
-        android:id="@+id/main_leagueMenu"
+        android:id="@+id/winlose_leagueMenu"
         android:layout_width="62dp"
         android:layout_height="94dp"
         android:adjustViewBounds="true"
