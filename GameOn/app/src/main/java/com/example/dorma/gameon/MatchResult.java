@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class winlose extends AppCompatActivity implements View.OnClickListener {
+public class MatchResult extends AppCompatActivity implements View.OnClickListener {
 
     private ImageView searchNow;
     private Player player;
@@ -126,7 +126,7 @@ public class winlose extends AppCompatActivity implements View.OnClickListener {
                 Bundle b = new Bundle();
                 b.putParcelable("current_player", player);
 
-                Intent i=new Intent(winlose.this, Loading.class);
+                Intent i=new Intent(MatchResult.this, Loading.class);
                 i.putExtras(b);
                 startActivity(i);
                 break;
@@ -134,7 +134,7 @@ public class winlose extends AppCompatActivity implements View.OnClickListener {
                 //showDialog(DIALOG_ID);
                 hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
                 minute = mcurrentTime.get(Calendar.MINUTE);
-                mTimePicker = new CustomTimePickerDialog(winlose.this, new TimePickerDialog.OnTimeSetListener() {
+                mTimePicker = new CustomTimePickerDialog(MatchResult.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                         startTimeText.setText( selectedHour + ":" + String.format("%02d", selectedMinute));
@@ -152,7 +152,7 @@ public class winlose extends AppCompatActivity implements View.OnClickListener {
                 mcurrentTime.set(Calendar.HOUR_OF_DAY, player.getStartHour()+1);
                 hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
                 minute = mcurrentTime.get(Calendar.MINUTE);
-                mTimePicker = new CustomTimePickerDialog(winlose.this, new TimePickerDialog.OnTimeSetListener() {
+                mTimePicker = new CustomTimePickerDialog(MatchResult.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                         endTimeText.setText( selectedHour + ":" + String.format("%02d", selectedMinute));

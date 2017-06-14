@@ -1,5 +1,6 @@
 package com.example.dorma.gameon;
 
+import android.app.NotificationManager;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        clearNotification();
 
         //final ImageView search = (ImageView) findViewById(R.id.search_round);
         //final Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate2);
@@ -87,6 +89,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         minute = mcurrentTime.get(Calendar.MINUTE);
         startTimeText.setText(hour + ":" + String.format("%02d", minute));
         endTimeText.setText((hour + 1) + ":" + String.format("%02d", minute));
+    }
+
+    private void clearNotification() {
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.cancel(WantToPlay.NOTIFICATION_ID);
     }
 
   /*  @Override
