@@ -5,6 +5,7 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.location.Location;
@@ -30,10 +31,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import static com.example.dorma.gameon.GameOnDoc.userId;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ImageView searchNow;
-    private Player player;
+    private Player player = null;
     private ImageButton startTimeButton;
     private ImageButton endTimeButton;
     private TextView endTimeText;
@@ -73,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         rightNow = (ImageView) findViewById(R.id.main_rightNowButton);
         rightNow.setOnClickListener(this);
         fetchPlayerData(); //Check for erros
+        Log.d("playerdata", player.getUserName());
         TextView nameTextView = (TextView) findViewById(R.id.main_playerName);
         ImageView image = (ImageView) findViewById(R.id.main_profilePic);
         int resID = getResources().getIdentifier(player.getPic(), "drawable", getPackageName());
@@ -81,9 +85,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         image.getLayoutParams().height = 230;
         image.getLayoutParams().width = 230;
         image.requestLayout();
-        nameTextView.setText(player.getName());
+        nameTextView.setText(player.getUserName());
         TextView leagueTextView = (TextView) findViewById(R.id.main_levelText);
-        leagueTextView.setText("LEVEL  " + player.getLeague());
+        leagueTextView.setText("LEVEL  " + player.getLevel());
         mcurrentTime = Calendar.getInstance();
         hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
         minute = mcurrentTime.get(Calendar.MINUTE);
@@ -134,11 +138,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 Bundle b = new Bundle();
+                Log.d("beforeadd player name", player.getUserName());
                 b.putParcelable("current_player", player);
 
                 Intent i=new Intent(MainActivity.this, Loading.class);
                 i.putExtras(b);
                 startActivity(i);
+                finish();
                 break;
             case R.id.main_fromTimeButton:
                 //showDialog(DIALOG_ID);
@@ -235,30 +241,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Iterate over the "balls" check boxes and update
         // the user wanted games
         // return the number of games that was picked
-        int counter = 0;
         CheckBox tennisCheckBox = (CheckBox)findViewById(R.id.main_tennisSelector);
         CheckBox basketballCheckBox = (CheckBox)findViewById(R.id.main_basketballSelector);
         CheckBox soccerCheckBox = (CheckBox)findViewById(R.id.main_soccerSelector);
         CheckBox baseBallCheckBox = (CheckBox) findViewById(R.id.main_baseballSelector);
-        ArrayList<Game> games = new ArrayList<>();
         if(tennisCheckBox.isChecked()){
-            counter++;
-            games.add(Game.TENNIS);
+            player.seteGame(Game.TENNIS);
+            return 1;
+        }else if(basketballCheckBox.isChecked()){
+            player.seteGame(Game.BASKETBALL);
+            return 1;
+        } else if(soccerCheckBox.isChecked()){
+            player.seteGame(Game.SOCCER);
+            return 1;
+        }else if(baseBallCheckBox.isChecked()){
+            player.seteGame(Game.BASEBALL);
+            return 1;
         }
-        if(basketballCheckBox.isChecked()){
-            counter++;
-            games.add(Game.BASKETBALL);
-        }
-        if(soccerCheckBox.isChecked()){
-            counter++;
-            games.add(Game.SOCCER);
-        }
-        if(baseBallCheckBox.isChecked()){
-            counter++;
-            games.add(Game.BASEBALL);
-        }
-        player.seteGames(games);
-        return counter;
+        return 0;
     }
 
     private void setPlayerTimeFromUI() {
@@ -266,10 +266,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void fetchPlayerData() {
-        if (player == null) {
-            player = new Player("yossi", 0, 1, 1, true, new Location(LocationManager.NETWORK_PROVIDER), "yossi");
-        }
-
+            SharedPreferences settings = getSharedPreferences("UserInfo", MODE_PRIVATE);
+            GameOnDoc.loadGameOnData(settings);
+            String username = settings.getString("username", null);
+            String id = settings.getString("user_id", null);
+            int level = settings.getInt("level", 0);
+            Log.d("userninfo",username + " " + id + " " + level);
+            player = new Player(username, id, level,Game.BASKETBALL,username+"pic");
         // update player's data
 
         //init player

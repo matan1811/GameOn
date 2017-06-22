@@ -12,31 +12,33 @@
     android:orientation="vertical"
     android:gravity="center"
     tools:context="com.example.dorma.gameon.MainActivity"
-    android:weightSum="8">
+    android:weightSum="8"
+    android:background="@drawable/background">
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        app:srcCompat="@drawable/loadicon"
-        android:id="@+id/loadingicon"
-        android:layout_centerInParent="true"
-        android:gravity="center"
-        android:layout_weight="5"/>
+        android:layout_weight="2"/>
 
     <TextView
-        android:text="Finding Opponent....."
+        android:text="Searching for match"
         android:layout_width="match_parent"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.WindowTitle"
         android:layout_height="0dp"
         android:id="@+id/finding_opponent_text"
         android:gravity="center"
-        android:layout_weight="2"
+        android:layout_weight="1"
         android:fontFamily="casual"/>
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/findinganim"
+        android:id="@+id/loadingicon"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:layout_weight="5"
+        android:layout_marginTop="0dp"/>
 
 
 </LinearLayout>

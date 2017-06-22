@@ -140,7 +140,7 @@
         app:srcCompat="@drawable/matchresultrightback" />
 
     <ImageView
-        android:id="@+id/winlose_rightbringBallButton"
+        android:id="@+id/winlose_rightWinButton"
         android:layout_width="31dp"
         android:layout_height="31dp"
         android:layout_marginTop="5dp"
@@ -154,7 +154,7 @@
         android:layout_marginBottom="5dp" />
 
     <ImageView
-        android:id="@+id/winlose_leftbringBallButton"
+        android:id="@+id/winlose_leftWinButton"
         android:layout_width="31dp"
         android:layout_height="31dp"
         android:layout_marginBottom="8dp"

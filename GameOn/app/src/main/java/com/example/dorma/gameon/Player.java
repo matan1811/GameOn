@@ -1,5 +1,6 @@
 package com.example.dorma.gameon;
 
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.location.Location;
 import android.os.Parcel;
@@ -13,20 +14,21 @@ import java.util.Date;
  */
 
 public class Player implements Parcelable {
-    private String name;
-    private int id;
-    private int exp;
-    private int league;
+    private String userName;
+    private String id;
+    //private int exp;
+    private int level;
     //private Bitmap pic;
-    private boolean isFirstPlayer;
-    private Location location;
-    private ArrayList<Game> eGames = new ArrayList<>();
+    //private boolean isFirstPlayer;
+    //private Location location;
+    private Game game;
     //private Date time;
     private int startHour;
     private int startMinute;
     private int endHour;
     private int endMinute;
     private String picPath;
+    static String phoneNumber;
 
     public Player(){
 
@@ -52,22 +54,16 @@ public class Player implements Parcelable {
         this.picPath = picPath;
     }
 
-    public Player(String name, int id, int exp, int league, boolean isFirstPlayer, Location location, String picPath) {
-        this.name = name;
+    public Player(String userName, String id, int level, Game game, String picPath) {
+        this.userName = userName;
         this.id = id;
-        this.exp = exp;
-        this.league = league;
-        this.isFirstPlayer = isFirstPlayer;
-        this.location = location;
+        this.level = level;
         this.picPath = picPath;
-        this.eGames = new ArrayList<Game>();
+        this.game = Game.BASKETBALL;
         this.startHour = 0;
         this.startMinute = 0;
         this.endHour = 0;
         this.endMinute = 0;
-        eGames.add(Game.BASKETBALL);
-        eGames.add(Game.SOCCER);
-        eGames.add(Game.TENNIS);
     }
 
     @Override
@@ -77,14 +73,10 @@ public class Player implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.name);
-        dest.writeInt(this.id);
-        dest.writeInt(this.exp);
-        dest.writeInt(this.league);
-        //pic.writeToParcel(dest,flags);
-        dest.writeByte((byte) (this.isFirstPlayer ? 1 : 0));
-        location.writeToParcel(dest, flags);
-        dest.writeList(this.eGames);
+        dest.writeString(this.userName);
+        dest.writeString(this.id);
+        dest.writeInt(this.level);
+        dest.writeString(this.game.toString());
         dest.writeInt(this.startHour);
         dest.writeInt(this.startMinute);
         dest.writeInt(this.endHour);
@@ -107,13 +99,10 @@ public class Player implements Parcelable {
     };
 
     private Player(Parcel in) {
-        this.name = in.readString();
-        this.id = in.readInt();
-        this.exp = in.readInt();
-        this.league = in.readInt();
-        this.isFirstPlayer = in.readByte() != 0;
-        this.location = Location.CREATOR.createFromParcel(in);
-        this.eGames = in.readArrayList(Game.class.getClassLoader());
+        this.userName = in.readString();
+        this.id = in.readString();
+        this.level = in.readInt();
+        this.game = Game.valueOf(in.readString());
         this.startHour = in.readInt();
         this.startMinute = in.readInt();
         this.endHour = in.readInt();
@@ -122,8 +111,8 @@ public class Player implements Parcelable {
 
     }
 
-    public ArrayList<Game> geteGames() {
-        return eGames;
+    public Game geteGame() {
+        return game;
     }
 
     public int getStartHour() {
@@ -159,60 +148,30 @@ public class Player implements Parcelable {
         player.populateFromJson(json);
         return player;
     }
-    public void seteGames(ArrayList<Game> games){ eGames = games; }
+    public void seteGame(Game game){ game = game; }
 
-    public void addGame(Game game){eGames.add(game);}
-
-    public String getGames() {
-        return eGames.toString();
+    public String getUserName() {
+        return userName;
     }
 
-    public boolean isFirstPlayer() {
-        return isFirstPlayer;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public void setFirstPlayer(boolean firstPlayer) {
-        isFirstPlayer = firstPlayer;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public int getExp() {
-        return exp;
-    }
-
-    public void setExp(int exp) {
-        this.exp = exp;
-    }
-
-    public int getLeague() {
-        return league;
+    public int getLevel() {
+        return level;
     }
 
     public void setLeague(int league) {
-        this.league = league;
+        this.level = league;
     }
 
     public String getPic() {
